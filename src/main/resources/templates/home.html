@@ -1,27 +1,112 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Getting Started: Serving Web Content</title>
+    <title>Обзор проведенных совещаний</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
-<p th:text="'Hello, ' + ${title} + '!'" />
+<hr class="mb-4">
+<div.col-md-8.order-md-1>
 <div class="row">
     <div class="col-md-6 mb-3">
-        <label for="firstName">First name</label>
-        <input type="text" class="form-control" id="firstName" placeholder="" value="" required="">
+        <label for="theme">Тема</label>
+        <input type="text" class="form-control" id="theme" placeholder="" value="" required="">
         <div class="invalid-feedback">
             Valid first name is required.
         </div>
     </div>
-    <div class="col-md-6 mb-3">
-        <label for="lastName">Last name</label>
-        <input type="text" class="form-control" id="lastName" placeholder="" value="" required="">
+    <div class="col-md-5 mb-3">
+        <label for="subdivision">Подразделение</label>
+        <select class="custom-select d-block w-100" id="subdivision" required="">
+            <option value="">Выбрать...</option>
+            <option>United States</option>
+        </select>
+        <div class="invalid-feedback">
+            Please select a valid subdivision.
+        </div>
+    </div>
+
+</div>
+    <div class="row">
+        <div class="col-md-6 mb-3">
+        <label for="time">Время проведения</label>
+        <input type="text" class="form-control" id="time" placeholder="" value="" required="">
         <div class="invalid-feedback">
             Valid last name is required.
         </div>
+        </div>
+        <div class="col-md-5 mb-3">
+            <label for="user">С участием</label>
+            <select class="custom-select d-block w-100" id="user" required="">
+                <option value="">Выбрать...</option>
+                <option>United States</option>
+            </select>
+            <div class="invalid-feedback">
+                Please select a valid user.
+            </div>
+        </div>
     </div>
+
+    <style>
+        .btn {
+            display: inline-block; /* Строчно-блочный элемент */
+            background: #8C959D; /* Серый цвет фона */
+            color: #fff; /* Белый цвет текста */
+            padding: 1rem 1.5rem; /* Поля вокруг текста */
+            text-decoration: none; /* Убираем подчёркивание */
+            border-radius: 3px; /* Скругляем уголки */
+        }
+    </style>
+    <a href="/meet" class="btn">Применить фильтр</a>
+    <style>
+        .btn {
+            display: inline-block; /* Строчно-блочный элемент */
+            background: #8C959D; /* Серый цвет фона */
+            color: #fff; /* Белый цвет текста */
+            padding: 1rem 1.5rem; /* Поля вокруг текста */
+            text-decoration: none; /* Убираем подчёркивание */
+            border-radius: 3px; /* Скругляем уголки */
+        }
+    </style>
+    <a href="/meet" class="btn">Показать все</a>
+    </div>
+</div.col-md-8.order-md-1>
+<div align="center">
+    <form method="get" action="search">
+    </form>
+    <table border="1" cellpadding="5">
+        <tr>
+            <th>Time</th>
+            <th>Theme</th>
+            <th>Subdivision</th>
+            <th>Responsible</th>
+            <th>Count</th>
+        </tr>
+        <c:forEach items="${listCustomer}" var="customer">
+            <tr>
+                <td>${meeting.time}</td>
+                <td>${meeting.theme}</td>
+                <td>${meeting.subdivision}</td>
+                <td>${meeting.responsible}</td>
+                <td>${meeting.count}</td>
+            </tr>
+        </c:forEach>
+    </table>
 </div>
+
+<style>
+        .btn {
+            display: inline-block; /* Строчно-блочный элемент */
+            background: #8C959D; /* Серый цвет фона */
+            color: #fff; /* Белый цвет текста */
+            padding: 1rem 1.5rem; /* Поля вокруг текста */
+            text-decoration: none; /* Убираем подчёркивание */
+            border-radius: 3px; /* Скругляем уголки */
+        }
+    </style>
+    <a href="/meet" class="btn">Добавить новое</a>
+
+
 </body>
 </html>
