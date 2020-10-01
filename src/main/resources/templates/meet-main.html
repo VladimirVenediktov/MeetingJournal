@@ -1,121 +1,79 @@
-<!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01
+    Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <head>
-    <title>Данные о совещинии</title>
+    <title>Данные о совещании</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
-<body>
-    <div class="row">
-        <div class="col-md-5 mb-3">
-            <label for="theme">Тема</label>
-            <input type="text" name="theme" class="form-control" id="theme" placeholder="" value="" required="">
-            <div class="invalid-feedback">
-                Valid first name is required.
+
+
+<div class="container mt-5 mb-6">
+    <h1>Добавление встречи</h1>
+        <form action="/meet" method="post">
+            <input type="text" name="theme" placeholder="Введите название статьи" class="form-control"><br>
+            <input type="text" name="timeString" placeholder="Введите время начала" class="form-control"><br>
+            <select class="custom-select d-block w-100" name="division" required="">
+                <option value="">Выбрать...</option>
+                <option>Develop</option>
+                <option>Manager</option>
+                <option>Tester</option>
+                <option>Design</option>
+            </select><br>
+            <select class="custom-select d-block w-100" name="owner" required="">
+                <option value="">Ответственный...</option>
+                <option>Иванов Иван Иванович</option>
+                <option>Степанков Степан Алексеевич</option>
+                <option>Воеводин Владислав Аркадьевич</option>
+                <option>Карамзин Павел Александрович</option>
+                <option>Пушкин Александр Сергеевич</option>
+                <option>Лермонтов Михаил Юрьевич</option>
+                <option>Гагарин Юрий Алексеевич</option>
+                <option>Леонов Алексей Архипович</option>
+                <option>Королев Сергей Палович</option>
+            </select><br>
+            <button type="submit" class="btn btn-success">Добавить встречу</button><br>
+        </form>
+            <form action="/getUserMeeting" method="get">
+            <select class="custom-select d-block w-100" name="users" required="">
+                <option value="">Участник...</option>
+                <option>Иванов Иван Иванович</option>
+                <option>Степанков Степан Алексеевич</option>
+                <option>Воеводин Владислав Аркадьевич</option>
+                <option>Карамзин Павел Александрович</option>
+                <option>Пушкин Александр Сергеевич</option>
+                <option>Лермонтов Михаил Юрьевич</option>
+                <option>Гагарин Юрий Алексеевич</option>
+                <option>Леонов Алексей Архипович</option>
+                <option>Королев Сергей Палович</option>
+
+            </select><br>
+            <button type="submit" class="btn btn-success">Добавить участника</button><br>
+            </form><br>
+
+            <div>
+                <h1>Участники</h1>
+                <h1>${users}</h1>
             </div>
-        </div>
-    </div>
 
-    <div class="row">
-        <div class="col-md-5 mb-3">
-            <label for="time">Время проведения</label>
-            <input type="text" name="time" class="form-control" id="time" placeholder="" value="" required="">
-            <div class="invalid-feedback">
-                Valid first name is required.
-            </div>
-        </div>
-    </div>
-    <div class="col-md-5 mb-3">
-        <label for="subdivision">Подразделение</label>
-        <select class="custom-select d-block w-100" name="group_id" id="subdivision" required="">
-            <option value="">Выбрать...</option>
-            <option>United States</option>
-        </select>
-        <div class="invalid-feedback">
-            Please select a valid subdivision.
-        </div>
-    </div>
 
-    <div class="col-md-5 mb-3">
-        <label for="responsible">Ответственный</label>
-        <select class="custom-select d-block w-100" id="responsible" required="">
-            <option value="">Выбрать...</option>
-            <option>United States</option>
-        </select>
-        <div class="invalid-feedback">
-            Please select a valid user.
-        </div>
-    </div>
-
-    <div>
-        <table border="1" cellpadding="4">
-            <tr>
-                <th>Name</th>
-                <th>Age</th>
-                <th>Subdivision</th>
-                <th>Action</th>
-
-            </tr>
-            <c:forEach items="${listCustomer}" var="customer">
+          <!--  <table border="1" cellpadding="5">
                 <tr>
-                    <td>${meeting.name}</td>
-                    <td>${meeting.age}</td>
-                    <td>${meeting.subdivision}</td>
-                    <th>
-                        <a href="/delete?id=${customer.id}">Delete</a>
-                    </th>
+                    <th>Имя</th>
+                    <th>Возраст</th>
+                    <th>Подразделение</th>
+                    <th></th>
                 </tr>
-            </c:forEach>
-        </table>
-    </div>
-    <div class="col-md-5 mb-3">
-        <label for="user">Участник</label>
-        <select class="custom-select d-block w-100" id="user" required="">
-            <option value="">Выбрать...</option>
-            <option>United States</option>
-        </select>
-        <div class="invalid-feedback">
-            Please select a valid subdivision.
-        </div>
-    </div>
-    <style>
-        .btn {
-            display: inline-block; /* Строчно-блочный элемент */
-            background: #8C959D; /* Серый цвет фона */
-            color: #fff; /* Белый цвет текста */
-            padding: 1rem 1.5rem; /* Поля вокруг текста */
-            text-decoration: none; /* Убираем подчёркивание */
-            border-radius: 3px; /* Скругляем уголки */
-        }
-    </style>
-    <a href="/meet" class="btn">Добавить</a>
-    <form action="/meet" method="post">
 
-    </form>
-<div>
-    <style>
-        .btn {
-            display: inline-block; /* Строчно-блочный элемент */
-            background: #8C959D; /* Серый цвет фона */
-            color: #fff; /* Белый цвет текста */
-            padding: 1rem 1.5rem; /* Поля вокруг текста */
-            text-decoration: none; /* Убираем подчёркивание */
-            border-radius: 3px; /* Скругляем уголки */
-        }
-    </style>
-    <a href="/meet" class="btn">Сохранить</a>
-    <style>
-        .btn {
-            display: inline-block; /* Строчно-блочный элемент */
-            background: #8C959D; /* Серый цвет фона */
-            color: #fff; /* Белый цвет текста */
-            padding: 1rem 1.5rem; /* Поля вокруг текста */
-            text-decoration: none; /* Убираем подчёркивание */
-            border-radius: 3px; /* Скругляем уголки */
-        }
-    </style>
-    <a href="/meet" class="btn">Не сохранять</a>
+                    <tr>
+                        <td>${user}</td>
+                        <td>${meeting.age}</td>
+                        <td>${meeting.division}</td>
+                        <td><a href="/delete?id=${customer.id}">Delete</a></td>
+                    </tr>
+
+
+            </table><br>-->
+
 </div>
-
-</body>
 </html>
