@@ -6,21 +6,116 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
-<div class="row">
-    <div class="col-md-6 mb-3">
-        <label for="firstName">Тема</label>
-        <input type="text" class="form-control" id="firstName" placeholder="" value="" required="">
-        <div class="invalid-feedback">
-            Valid first name is required.
+    <div class="row">
+        <div class="col-md-5 mb-3">
+            <label for="theme">Тема</label>
+            <input type="text" name="theme" class="form-control" id="theme" placeholder="" value="" required="">
+            <div class="invalid-feedback">
+                Valid first name is required.
+            </div>
         </div>
     </div>
-    <div class="col-md-6 mb-3">
-        <label for="lastName">Last name</label>
-        <input type="text" class="form-control" id="lastName" placeholder="" value="" required="">
-        <div class="invalid-feedback">
-            Valid last name is required.
+
+    <div class="row">
+        <div class="col-md-5 mb-3">
+            <label for="time">Время проведения</label>
+            <input type="text" name="time" class="form-control" id="time" placeholder="" value="" required="">
+            <div class="invalid-feedback">
+                Valid first name is required.
+            </div>
         </div>
     </div>
+    <div class="col-md-5 mb-3">
+        <label for="subdivision">Подразделение</label>
+        <select class="custom-select d-block w-100" name="group_id" id="subdivision" required="">
+            <option value="">Выбрать...</option>
+            <option>United States</option>
+        </select>
+        <div class="invalid-feedback">
+            Please select a valid subdivision.
+        </div>
+    </div>
+
+    <div class="col-md-5 mb-3">
+        <label for="responsible">Ответственный</label>
+        <select class="custom-select d-block w-100" id="responsible" required="">
+            <option value="">Выбрать...</option>
+            <option>United States</option>
+        </select>
+        <div class="invalid-feedback">
+            Please select a valid user.
+        </div>
+    </div>
+
+    <div>
+        <table border="1" cellpadding="4">
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Subdivision</th>
+                <th>Action</th>
+
+            </tr>
+            <c:forEach items="${listCustomer}" var="customer">
+                <tr>
+                    <td>${meeting.name}</td>
+                    <td>${meeting.age}</td>
+                    <td>${meeting.subdivision}</td>
+                    <th>
+                        <a href="/delete?id=${customer.id}">Delete</a>
+                    </th>
+                </tr>
+            </c:forEach>
+        </table>
+    </div>
+    <div class="col-md-5 mb-3">
+        <label for="user">Участник</label>
+        <select class="custom-select d-block w-100" id="user" required="">
+            <option value="">Выбрать...</option>
+            <option>United States</option>
+        </select>
+        <div class="invalid-feedback">
+            Please select a valid subdivision.
+        </div>
+    </div>
+    <style>
+        .btn {
+            display: inline-block; /* Строчно-блочный элемент */
+            background: #8C959D; /* Серый цвет фона */
+            color: #fff; /* Белый цвет текста */
+            padding: 1rem 1.5rem; /* Поля вокруг текста */
+            text-decoration: none; /* Убираем подчёркивание */
+            border-radius: 3px; /* Скругляем уголки */
+        }
+    </style>
+    <a href="/meet" class="btn">Добавить</a>
+    <form action="/meet" method="post">
+
+    </form>
+<div>
+    <style>
+        .btn {
+            display: inline-block; /* Строчно-блочный элемент */
+            background: #8C959D; /* Серый цвет фона */
+            color: #fff; /* Белый цвет текста */
+            padding: 1rem 1.5rem; /* Поля вокруг текста */
+            text-decoration: none; /* Убираем подчёркивание */
+            border-radius: 3px; /* Скругляем уголки */
+        }
+    </style>
+    <a href="/meet" class="btn">Сохранить</a>
+    <style>
+        .btn {
+            display: inline-block; /* Строчно-блочный элемент */
+            background: #8C959D; /* Серый цвет фона */
+            color: #fff; /* Белый цвет текста */
+            padding: 1rem 1.5rem; /* Поля вокруг текста */
+            text-decoration: none; /* Убираем подчёркивание */
+            border-radius: 3px; /* Скругляем уголки */
+        }
+    </style>
+    <a href="/meet" class="btn">Не сохранять</a>
 </div>
+
 </body>
 </html>
