@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Данные о совещании</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<div class="container mt-5 mb-6">
+  <h1>Добавление совещания</h1>
+  <form action="#" th:action="@{/addMeeting}" th:object="${meeting}" method="post">
+    <input type="text"  th:field="*{theme}" placeholder="Введите тему"/>
+    <br>
+    <input type="date" th:field="*{date}" placeholder="Введите дату"/>
+    <br>
+    <select name="division">
+      <option value="">Выберите подразделение</option>
+      <option>Develop</option>
+      <option>Manager</option>
+      <option>Tester</option>
+      <option>Design</option>
+    </select>
+    <br>
+    <select name="responsible">
+      <option value="">Ответственный</option>
+      <option>Ivanov Ivan</option>
+      <option>Stepanov Stepan</option>
+      <option>Воеводин Владислав Аркадьевич</option>
+      <option>Карамзин Павел Александрович</option>
+      <option>Пушкин Александр Сергеевич</option>
+      <option>Лермонтов Михаил Юрьевич</option>
+      <option>Гагарин Юрий Алексеевич</option>
+      <option>Леонов Алексей Архипович</option>
+      <option>Королев Сергей Павлович</option>
+    </select>
+    <br>
+    <input type="submit" value="Сохранить совещание"/>
+    <br>
+  </form>
+  <br>
+
+  <!--<form action="/getUserMeeting" method="get">
+    <select class="custom-select d-block w-100" name="users" required="">
+      <option value="">Участник...</option>
+      <option>Иванов Иван Иванович</option>
+      <option>Степанков Степан Алексеевич</option>
+      <option>Воеводин Владислав Аркадьевич</option>
+      <option>Карамзин Павел Александрович</option>
+      <option>Пушкин Александр Сергеевич</option>
+      <option>Лермонтов Михаил Юрьевич</option>
+      <option>Гагарин Юрий Алексеевич</option>
+      <option>Леонов Алексей Архипович</option>
+      <option>Королев Сергей Палович</option>
+    </select><br>
+
+    <button type="submit" class="btn btn-success">Добавить участника</button>
+    <br>
+  </form>-->
+  <br>
+
+  <!--<div>
+    <table border="2" cellpadding="5">
+      <thead> Cостав участников</thead>
+      <tr>
+        <th>Имя</th>
+        <th>Возраст</th>
+        <th>Подразделение</th>
+      </tr>
+      <tbody>
+      <tr th:each="employee : ${employeeList}">
+        <td th:text="${employee.name}"/>
+        <td th:text="${employee.age}"/>
+        <td th:text="${employee.division}"/>
+      </tr>
+      </tbody>
+    </table>
+  </div>-->
+  <br>
+
+  <a href="/home" class="btn">К списку совещаний</a>
+  <style>
+    .btn {
+      display: inline-block; /* Строчно-блочный элемент */
+      background: #8C959D; /* Серый цвет фона */
+      color: #fff; /* Белый цвет текста */
+      padding: 1rem 1.5rem; /* Поля вокруг текста */
+      text-decoration: none; /* Убираем подчёркивание */
+      border-radius: 3px; /* Скругляем уголки */
+    }
+  </style>
+
+</div>
+</html>
