@@ -11,13 +11,19 @@ import javax.persistence.Id;
 @Entity
 @Getter
 @Setter
-public class UserMeeting {
+public class EmployeeMeetingLink {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    private Long meetingId;
+    private String employee;
 
-    private int meetingId;
-    private String user;
+    public EmployeeMeetingLink(Long meetingId, String employee) {
+        this.meetingId = meetingId;
+        this.employee = employee;
+    }
 
+    public EmployeeMeetingLink() {
+    }
 }

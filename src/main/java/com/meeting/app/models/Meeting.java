@@ -4,35 +4,69 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Date;
-import java.util.List;
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
-@Getter
-@Setter
 public class Meeting {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-
-    private String owner;
+    private String theme;
+    private String responsible;
     private String division;
-    private String name;
-    private Date dtBegin, dtEnd;
-    @ElementCollection
-    private List<String> users;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private Date date;
 
-    public Meeting(String name, Date datetime, String division, String owner) {
-        this.name = name;
-        this.dtBegin = datetime;
-        this.division = division;
-        this.owner = owner;
-        //this.users = users;
-    }
 
     public Meeting() {
+
     }
 
+    public Meeting(String theme, String responsible, String division, Date date) {
+        this.theme = theme;
+        this.responsible = responsible;
+        this.division = division;
+        this.date = date;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setTheme(String theme) {
+        this.theme = theme;
+    }
+
+    public void setResponsible(String responsible) {
+        this.responsible = responsible;
+    }
+
+    public void setDivision(String division) {
+        this.division = division;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getTheme() {
+        return theme;
+    }
+
+    public String getResponsible() {
+        return responsible;
+    }
+
+    public String getDivision() {
+        return division;
+    }
+
+    public Date getDate() {
+        return date;
+    }
 }
