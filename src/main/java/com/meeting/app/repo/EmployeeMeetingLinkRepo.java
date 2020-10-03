@@ -9,6 +9,7 @@ import java.util.List;
 
 public interface EmployeeMeetingLinkRepo extends CrudRepository<EmployeeMeetingLink, Long> {
 
-    @Query("SELECT um.user FROM EmployeeMeetingLink um WHERE um.meetingId = :meetingId")
+    @Query("SELECT em.employee FROM EmployeeMeetingLink em WHERE em.meetingId = :meetingId")
     List<String> findByMeetingId(@Param("meetingId") int meetingId);
+
 }

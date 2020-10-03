@@ -16,15 +16,14 @@ public class EmployeeMeetingLink {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private int meetingId;
-    private String user;
+    private Long meetingId;
+    private String employee;
 
-    protected EmployeeMeetingLink() {
-
+    public EmployeeMeetingLink(Long meetingId, String employee) {
+        this.meetingId = meetingId;
+        this.employee = employee;
     }
 
-    public EmployeeMeetingLink(int meetingId, String user) {
-        this.meetingId = meetingId;
-        this.user = user;
+    public EmployeeMeetingLink() {
     }
 }

@@ -8,8 +8,6 @@ import java.util.Date;
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
-@Getter
-@Setter
 public class Meeting {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -20,6 +18,7 @@ public class Meeting {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date date;
 
+
     public Meeting() {
 
     }
@@ -29,5 +28,45 @@ public class Meeting {
         this.responsible = responsible;
         this.division = division;
         this.date = date;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setTheme(String theme) {
+        this.theme = theme;
+    }
+
+    public void setResponsible(String responsible) {
+        this.responsible = responsible;
+    }
+
+    public void setDivision(String division) {
+        this.division = division;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getTheme() {
+        return theme;
+    }
+
+    public String getResponsible() {
+        return responsible;
+    }
+
+    public String getDivision() {
+        return division;
+    }
+
+    public Date getDate() {
+        return date;
     }
 }
