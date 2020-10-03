@@ -1,4 +1,3 @@
-<!--
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
@@ -63,7 +62,7 @@
       <th>Тема</th>
       <th>Подразделение</th>
       <th>Ответственный</th>
-      <th>Count</th>
+      <th>Кол-во участников</th>
     </tr>
     <tbody>
     <tr th:each="meeting : ${meetingList}">
@@ -71,7 +70,7 @@
       <td th:text="${meeting.theme}"/>
       <td th:text="${meeting.division}"/>
       <td th:text="${meeting.responsible}"/>
-      <td th:text = "${meeting.membersCount}"/>
+      <td th:text="${meeting.employeeCount}"/>
     </tr>
     </tbody>
   </table>
@@ -88,99 +87,6 @@
     text-decoration: none; /* Убираем подчёркивание */
     border-radius: 3px; /* Скругляем уголки */
   }
-</style>
-
-</body>
-</html>-->
-<!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <title>Обзор проведенных совещаний</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-</head>
-<body>
-<hr class="mb-4">
-<div.col-md-8.order-md-1>
-    <div class="row">
-        <div class="col-md-6 mb-3">
-            <label for="theme">Тема</label>
-            <input type="text" class="form-control" id="theme" placeholder="" value="" required="">
-            <div class="invalid-feedback">
-                Valid first name is required.
-            </div>
-        </div>
-        <div class="col-md-5 mb-3">
-            <label for="subdivision">Подразделение</label>
-            <select class="custom-select d-block w-100" id="subdivision" required="">
-                <option value="">Выбрать...</option>
-                <option>United States</option>
-            </select>
-            <div class="invalid-feedback">
-                Please select a valid subdivision.
-            </div>
-        </div>
-
-    </div>
-    <div class="row">
-        <div class="col-md-6 mb-3">
-            <label for="time">Время проведения</label>
-            <input type="text" class="form-control" id="time" placeholder="" value="" required="">
-            <div class="invalid-feedback">
-                Valid last name is required.
-            </div>
-        </div>
-        <div class="col-md-5 mb-3">
-            <label for="user">С участием</label>
-            <select class="custom-select d-block w-100" id="user" required="">
-                <option value="">Выбрать...</option>
-                <option>United States</option>
-            </select>
-            <div class="invalid-feedback">
-                Please select a valid user.
-            </div>
-        </div>
-    </div>
-
-    <a href="/meet" class="btn">Применить фильтр</a>
-    <a href="/meeting" class="btn">Показать все</a>
-    </div>
-</div.col-md-8.order-md-1>
-<br>
-
-<div>
-    <br>
-    <table border="1" cellpadding="5">
-        <tr>
-            <th>Дата</th>
-            <th>Тема</th>
-            <th>Подразделение</th>
-            <th>Ответственный</th>
-            <th>Count</th>
-        </tr>
-        <tbody>
-        <tr th:each="meeting : ${meetingList}">
-            <td th:text="${meeting.date}"/>
-            <td th:text="${meeting.theme}"/>
-            <td th:text="${meeting.division}"/>
-            <td th:text="${meeting.responsible}"/>
-            <td th:text = "${meeting.employeeCount}"/>
-        </tr>
-        </tbody>
-    </table>
-</div>
-<br>
-
-<a href="/newMeeting" class="btn">Добавить новое совещание</a>
-<style>
-    .btn {
-        display: inline-block; /* Строчно-блочный элемент */
-        background: #8C959D; /* Серый цвет фона */
-        color: #fff; /* Белый цвет текста */
-        padding: 1rem 1.5rem; /* Поля вокруг текста */
-        text-decoration: none; /* Убираем подчёркивание */
-        border-radius: 3px; /* Скругляем уголки */
-    }
 </style>
 
 </body>

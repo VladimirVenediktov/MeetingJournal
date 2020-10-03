@@ -17,11 +17,11 @@ public class EmployeeMeetingLink {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private Long meetingId;
-    private String employee;
+    private Long employeeId;
 
-    public EmployeeMeetingLink(Long meetingId, String employee) {
+    public EmployeeMeetingLink(Long meetingId, Long employeeId) {
         this.meetingId = meetingId;
-        this.employee = employee;
+        this.employeeId = employeeId;
     }
 
     public EmployeeMeetingLink() {
